@@ -1,0 +1,23 @@
+.Footer {
+    background-color: #044B67;
+    color: #F0F3BD;
+    width: 100vw;
+    height: 4vw;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .6em;
+    font-family: 'Kanit', sans-serif;
+    box-sizing: border-box;
+    background-image: url('../../Images/BrackItFooter.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: left;
+    /* background-position-x: -.5vw; */
+    /* background-position-y: 0px; */
+    display: flex;
+}
