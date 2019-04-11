@@ -1,0 +1,36 @@
+.MainPage {
+    background-color: #044B67;
+    width: 100vw;
+    height: calc(100vh - 10vw);
+    position: relative;
+    display: flex;
+    justify-content: center;
+}
+
+.MainPageButton {
+    position: relative;
+    top: 10vw;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    border-radius: 20px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 3px solid #F0F3BD;
+    width: 30vw;
+    height: 10vw;
+    font-weight: bolder;
+    font-size: calc(2px + 3vw);
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, .4)
+}
+
+.MainPageButtonText {
+    text-align: center;
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
