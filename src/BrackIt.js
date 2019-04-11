@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import './BrackIt.css';
 
 import Main from "./Components/MainPage/Main"
-import Secret from "./Components/Secret"
 import NotFound from "./Components/Navigation/NotFound"
 import Callback from './Components/Navigation/Callback';
+import ApplicationViews from './Components/ApplicationViews';
 
 export default class BrackIt extends Component {
   render() {
@@ -20,10 +20,10 @@ export default class BrackIt extends Component {
       case "callback":
         mainComponent = <Callback />
         break
-      case "secret":
+      case "profile":
         mainComponent = this.props.auth.isAuthenticated()
           ?
-          <Secret
+          <ApplicationViews
             {...this.props} />
           :
           <NotFound />

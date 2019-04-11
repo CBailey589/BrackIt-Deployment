@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './BrackIt.css';
 import BrackIt from './BrackIt';
 import * as serviceWorker from './serviceWorker';
+import { BrowserRouter } from 'react-router-dom';
 
 import Auth from "./Auth/Auth"
 
@@ -14,9 +15,12 @@ let state = {}
 window.setState = (changes) => {
     state = Object.assign({}, state, changes)
 
-    ReactDOM.render(<BrackIt
-        {...state}
-    />, document.getElementById('root'));
+    ReactDOM.render(
+        <BrowserRouter>
+            <BrackIt {...state} />
+        </BrowserRouter>
+
+        , document.getElementById('root'));
 }
 
 // gets username if user is logged in for display in welcome message, or uses "BrackIteer" if not logged in
