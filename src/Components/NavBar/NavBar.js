@@ -18,7 +18,6 @@ class NavBar extends Component {
                     </button>
                 </div>
                 }
-
             </div>
         )
     }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './BrackIt.css';
 
-import Main from "./Components/Main"
+import Main from "./Components/MainPage/Main"
 import Secret from "./Components/Secret"
 import NotFound from "./Components/Navigation/NotFound"
 import Callback from './Components/Navigation/Callback';
