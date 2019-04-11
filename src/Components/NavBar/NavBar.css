@@ -1,0 +1,53 @@
+.NavBar {
+    background-color: #028090;
+    display: flex;
+    flex-direction: row;
+    height: 10vw;
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+.NavBarLogo {
+    box-sizing: border-box;
+    background-image: url('../../Images/BrackItLogo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    height: 100%;
+    width: 40%;
+}
+
+.HeaderWelcome {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(4px + 2.4vw);
+    color: #F0F3BD;
+    min-height: 100%;
+    width: 40%;
+
+}
+
+.NavBarLinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 100%;
+    width: 20%;
+    position: relative;
+    bottom: 1vw;
+    right: 1vw;
+    box-sizing: border-box;
+}
+
+.NavBarLinks button {
+    cursor: pointer;
+    color: #F0F3BD;
+    font-size: calc(2px + 2vw);
+    font-weight: bold;
+    background-color: #028090;
+    border: none;
+}
