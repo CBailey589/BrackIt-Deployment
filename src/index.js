@@ -4,9 +4,27 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import Auth from "./Auth/Auth"
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+const auth = new Auth();
+
+let state = {}
+window.setState = (changes) => {
+    state = Object.assign({}, state, changes)
+
+    ReactDOM.render(<App
+        {...state}
+        />, document.getElementById('root'));
+}
+
+let username = auth.getProfile().given_name || "BrackIteer"
+
+let initialState = {
+    name: username,
+    location: window.location.pathname.replace(/^\/?|\/$/g, ""),
+    auth
+}
+
+window.setState(initialState)
+
 serviceWorker.unregister();
