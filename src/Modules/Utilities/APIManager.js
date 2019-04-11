@@ -23,5 +23,35 @@ export default Object.create(null, {
             return fetch(`${Settings.url}/${this.DBarray}${searchString}`)
                 .then(r => r.json())
         }
+    },
+    PATCH: {
+        value: function (id, key, value) {
+            return fetch(`${Settings.url}/${this.DBarray}/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ [key]: value })
+            }).then(r => r.json())
+        }
+    },
+    DELETE: {
+        value: function (id) {
+            return fetch(`${Settings.url}/${this.DBarray}/${id}`,
+                {
+                    method: "DELETE"
+                }).then(r => r.json())
+        }
+    },
+    PUT: {
+        value: function (obj) {
+            return fetch(`${Settings.url}/${this.DBarray}/${obj.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(obj)
+            }).then(r => r.json());
+        }
     }
 })

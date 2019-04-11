@@ -53,8 +53,8 @@ class ApplicationViews extends Component {
         return ListManager.DELETE(listId)
             .then(() => {
                 const newState = this.state
-                let shortenedArray = newState.usersLists.filter(list => list.id !== listId)
-                newState.usersLists = shortenedArray
+                newState.usersLists = newState.usersLists.filter(list => list.id !== listId)
+                newState.usersListItems = newState.usersListItems.filter(item => item.listId !== listId)
                 this.setState(newState)
             })
     }
@@ -80,38 +80,37 @@ class ApplicationViews extends Component {
             .then(() => document.querySelector(`#edit--${item.listId}`).click())
     }
 
-    updateList = () => { }
-    // updateList = (listObj) => {
-    //     let newState = this.state
-    //     return ListManager.PUT(listObj)
-    //         .then(() => UserManager.CUSTOMSEARCH(`?id=${listObj.userId}&_embed=lists`))
-    //         .then(json => newState.usersLists = json[0].lists)
-    //         .then(() => ListManager.GETALL())
-    //         .then(json => newState.globalLists = json)
-    //         .then(() => this.setState(newState))
-    // }
+    updateList = (listObj) => {
+        // replaces the database object with the updated object (listObj), repulls all of the users lists, sets state, and re rendres
+        let newState = this.state
+        let userId = parseInt(this.props.userId)
+        return ListManager.PUT(listObj)
+            .then(() => ListManager.GETALL())
+            .then(array => {
+                let usersLists = array.filter(list => list.userId === userId)
+                newState.usersLists = usersLists
+            })
+            .then(() => this.setState(newState))
+    }
 
-    chanteItemStatus = () => { }
-    // changeItemStatus = (evt) => {
-    //     let newState = this.state
-    //     const checkboxId = parseInt(evt.target.id.split("--")[1])
-    //     let userId = parseInt(sessionStorage.getItem("BrackItId"))
-    //     if (evt.target.checked) {
-    //         ListItemsManager.PATCH(checkboxId, "itemActive", true)
-    //         .then(() => ListItemsManager.CUSTOMSEARCH(`?userId=${userId}`))
-    //         .then(json => newState.usersListItems = json)
-    //         .then(() => ListItemsManager.GETALL())
-    //         .then(json => newState.globalListItems = json)
-    //         .then(() => this.setState(newState))
-    //     } else {
-    //         ListItemsManager.PATCH(checkboxId, "itemActive", false)
-    //         .then(() => ListItemsManager.CUSTOMSEARCH(`?userId=${userId}`))
-    //         .then(json => newState.usersListItems = json)
-    //         .then(() => ListItemsManager.GETALL())
-    //         .then(json => newState.globalListItems = json)
-    //         .then(() => this.setState(newState))
-    //     }
-    // }
+
+    changeItemStatus = (evt) => {
+        // Checks to see if a checkbox is checked, and sets "itemActive" accordingly, then resets state to force a re render to show changes
+        let newState = this.state
+        const checkboxId = parseInt(evt.target.id.split("--")[1])
+        let userId = parseInt(this.props.userId)
+        if (evt.target.checked) {
+            ListItemManager.PATCH(checkboxId, "itemActive", true)
+                .then(() => ListItemManager.CUSTOMSEARCH(`?userId=${userId}`))
+                .then(json => newState.usersListItems = json)
+                .then(() => this.setState(newState))
+        } else {
+            ListItemManager.PATCH(checkboxId, "itemActive", false)
+                .then(() => ListItemManager.CUSTOMSEARCH(`?userId=${userId}`))
+                .then(json => newState.usersListItems = json)
+                .then(() => this.setState(newState))
+        }
+    }
 
 
 
@@ -139,19 +138,5 @@ class ApplicationViews extends Component {
             </React.Fragment>
         )
     }
-
-
-
-
-
-    // render() {
-    //     return (
-    //         <React.Fragment>
-    //             <NavBar {...this.props} />
-    //             {/* <div>This is a secret area</div> */}
-    //             <button onClick={this.props.auth.logout}>Logout</button>
-    //         </React.Fragment>
-    //     )
-    // }
 }
 export default ApplicationViews

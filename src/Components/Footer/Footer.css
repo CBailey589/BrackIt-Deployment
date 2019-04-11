@@ -16,8 +16,7 @@
     background-image: url('../../Images/BrackItFooter.svg');
     background-size: auto;
     background-repeat: no-repeat;
-    background-position: top;
-    background-position-x: -1vmin;
-    /* background-position-y: 0px; */
+    background-position-x: left;
+    background-position-y: top;
     display: flex;
 }

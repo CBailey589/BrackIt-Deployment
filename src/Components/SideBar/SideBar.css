@@ -15,7 +15,8 @@
     background-image: url('../../Images/BrackItSideBar.svg');
     background-size: auto;
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position-x: left;
+    background-position-y: bottom;
     display: flex;
 }
 

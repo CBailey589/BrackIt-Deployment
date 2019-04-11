@@ -7,7 +7,7 @@ class SideBar extends Component {
     render() {
         return (
             <section className="SideBar">
-                <Link className="NavLink" to="/">
+                <Link className="NavLink" to="/profile">
                     <button className="SideBarLink"
                     >My Lists</button>
                 </Link>
