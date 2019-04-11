@@ -10,7 +10,7 @@ export default class BrackIt extends Component {
   render() {
     // establishes which component will be shown based off of location in state (based off of url)
     // Main is the initial landing page
-
+    // profile is the "application views" that will switch between the users "home page" and any bracket they make
     let mainComponent
     switch (this.props.location) {
       case "":

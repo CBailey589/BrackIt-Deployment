@@ -1,0 +1,616 @@
+.ListSection {
+    background-color: #05668D;
+    display: flex;
+    flex-flow: column;
+    position: fixed;
+    right: 0;
+    bottom: 4vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    width: 88vw;
+    height: calc(100vh - 14vw);
+    box-sizing: border-box;
+    font-family: 'Kanit', sans-serif;
+}
+
+/* START OF PAGE SCROLLBARS: */
+
+.ListSection::-webkit-scrollbar {
+    width: 8px;
+    background-color: #05668D;
+}
+
+.ListSection::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #00A896;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent)
+}
+
+.ListSection::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #05668D;
+}
+
+.ListSection::-webkit-scrollbar-corner {
+    background-color: #05668D;
+}
+
+/* END OF PAGE SCROLLBARS */
+
+/* START OF LIST HEADER: */
+
+.ListSectionHeader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+}
+
+.ListSectionHeader button {
+    border-radius: 20px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 3px solid #F0F3BD;
+    height: 70%;
+    width: 250px;
+    font-weight: bolder;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, .4)
+}
+
+.ListSectionHeader button:hover {
+    background-color: #F0F3BD;
+    color: #05668D;
+}
+
+.ListSectionHeader button:focus {
+    outline: 0;
+}
+
+/* END OF LIST HEADER */
+
+/* START OF USER LIST SECTION: */
+
+.ListCardHolder {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+.ListCardOuterBorder {
+    margin: 25px;
+    box-sizing: border-box;
+    border: 10px solid #F0F3BD;
+    background-color: #F0F3BD;
+    border-radius: 15px;
+    width: 40%;
+    min-width: 450px;
+    height: 35%;
+    min-height: 350px;
+    position: relative;
+}
+
+/* SHADOWS AROUND LIST CARDS: */
+
+.ListCardOuterBorder:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0 -15px 25px rgba(0, 0, 0, .8);
+    width: 92%;
+    height: 10%;
+    left: 4%;
+    top: 0%;
+    border-radius: 100px / 10px;
+}
+
+.ListCardOuterBorder:after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .8);
+    width: 92%;
+    height: 10%;
+    left: 4%;
+    bottom: 0%;
+    border-radius: 100px / 10px;
+}
+
+/* END OF SHADOWS AROUND LIST CARDS */
+
+.ListCard {
+    background-color: #05668D;
+    border-radius: 20px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 0, 0, 0.4) inset;
+}
+
+.ListHeader {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ListName {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 98%;
+    font-size: 30px;
+    font-weight: bolder;
+    color: #F0F3BD;
+    /* margin-bottom: 10px; */
+}
+
+.ListCatAndNum {
+    display: flex;
+    flex-direction: row;
+    width: 75%;
+    justify-content: space-between;
+    align-items: flex-end;
+    /* margin-bottom: 10px; */
+}
+
+.ListCategory {
+    font-size: 20px;
+    color: #F0F3BD;
+}
+
+.ListNumber {
+    font-size: 14px;
+    color: #F0F3BD;
+}
+
+/* EVERYTHING INSIDE OF LIST ITEMS INCLUDING STYLED CHECKBOXES AND SCROLL BARS*/
+
+.ListItems {
+    border: 3px solid #02C39A;
+    background-color: #044B67;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+    height: 50%;
+    width: 75%;
+    overflow-y: scroll;
+    /* margin-bottom: 10px; */
+    box-sizing: border-box;
+}
+
+/* Scroll Bars */
+
+.ListItems::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ListItems::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 15px #00A896;
+    background-color: #FAFAFA
+}
+
+/* Items & Checkboxes */
+
+.ItemSection {
+    /* border: 1px dotted gold; */
+    color: #F0F3BD;
+    font-weight: bold;
+    font-size: 17px;
+    display: flex;
+    min-height: 40px;
+    max-height: 40px;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: -7px 7px -7px 0px;
+    padding: 5px;
+    /* box-sizing: border-box; */
+}
+
+.CheckboxContainer {
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 15px;
+    height: 100%;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.CheckboxContainer input {
+    z-index: 1;
+    position: relative;
+    top: 20px;
+    left: 2px;
+    /* comment out opacity to see checkboxes */
+    opacity: 0;
+    cursor: pointer;
+    height: 20px;
+    width: 15px;
+}
+
+.Checkmark {
+    height: 15px;
+    width: 15px;
+    border: 2px solid #02C39A;
+}
+
+.CheckboxContainer:hover input~.Checkmark {
+    background-color: #02C39A;
+}
+
+.CheckboxContainer input:checked~.Checkmark {
+    border: 2px solid #02C39A;
+}
+
+.Checkmark:after {
+    content: "";
+    display: none;
+}
+
+.CheckboxContainer input:checked~.Checkmark:after {
+    display: block;
+}
+
+.CheckboxContainer .Checkmark:after {
+    position: relative;
+    left: 0px;
+    top: -5px;
+    width: 7px;
+    height: 15px;
+    border: solid #F0F3BD;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(35deg);
+    -ms-transform: rotate(35deg);
+    transform: rotate(35deg);
+}
+
+/* End of List Items Scrollbars and Checkboxes  */
+
+.CardButtons {
+    display: flex;
+    width: 75%;
+    height: 15%;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.CardButtons button {
+    font-size: 20px;
+    font-weight: bolder;
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 2px solid #F0F3BD;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.CardButtons button:hover {
+    background-color: #F0F3BD;
+    color: #05668D;
+}
+
+.BrackitWarning {
+    margin-left: 10px;
+    font-size: 12px;
+    color: #F0F3BD;
+}
+
+.ListFooter {
+    /* border: 1px solid pink; */
+    display: flex;
+    width: 90%;
+}
+
+.PrivacySetting {
+    width: 100%;
+    font-size: 14px;
+    color: #0021A5;
+    font-weight: bolder;
+    margin-bottom: 5px;
+}
+
+.ListDeleteButton {
+    width: 15%;
+    border-radius: 7px;
+    background-color: #05668D;
+    border: 1px solid #F0F3BD;
+    font-size: 14px;
+    color: #F0F3BD;
+    font-weight: bolder;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.ListDeleteButton:hover {
+    background-color: #F0F3BD;
+    color: #05668D;
+}
+
+.PrivacyCheckboxContainer {
+    display: flex;
+    width: 50%;
+    justify-content: space-between;
+}
+
+.PrivacyCheckboxLabel {
+    font-size: 14px;
+    color: #0021A5;
+    font-weight: bolder;
+}
+
+.BehindModalCover {
+    background-color: rgba(0, 0, 0, .6);
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    left: 0vw;
+    top: 0vh;
+    z-index: 1;
+}
+
+/* Start of New List Modal: */
+
+.NewListForm {
+    z-index: 2;
+    position: fixed;
+    height: 24vh;
+    width: 34vw;
+    left: 33vw;
+    top: 38vh;
+    border: 10px solid #F0F3BD;
+    border-radius: 20px;
+    background-color: #05668D;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.NewListName, .NewListCat {
+    width: 100%;
+    height: 33%;
+    color: #F0F3BD;
+    font-weight: bolder;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.NewListName input, .NewListCat input {
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 2px inset #F0F3BD;
+    font-size: 24px;
+    outline: none;
+    text-align: center;
+}
+
+.NewListButtons {
+    height: 33%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 0px 10px 0px 10px;
+}
+
+.NewListButtons button {
+    font-size: 20px;
+    font-weight: bolder;
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 2px solid #F0F3BD;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.NewListButtons button:hover {
+    background-color: #F0F3BD;
+    color: #05668D;
+}
+
+/* End of New List Modal */
+
+/* Start of Edit List Modal: */
+
+.EditListForm {
+    z-index: 2;
+    position: fixed;
+    height: 50vh;
+    width: 34vw;
+    left: 33vw;
+    top: 25vh;
+    border: 10px solid #F0F3BD;
+    border-radius: 20px;
+    background-color: #05668D;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.EditListName, .EditListCat {
+    width: 100%;
+    height: 15%;
+    color: #F0F3BD;
+    font-weight: bolder;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.EditListName input, .EditListCat input {
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 2px inset #F0F3BD;
+    font-size: 24px;
+    outline: none;
+    text-align: center;
+}
+
+.EditListForm .ListItems {
+    height: 40%;
+}
+
+.EditListForm .ListItems button {
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 2px solid #F0F3BD;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.EditListForm .ListItems button:hover {
+    background-color: #F0F3BD;
+    color: #05668D;
+}
+
+.NewItem {
+    width: 85%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    color: #F0F3BD;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.NewItem input {
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 2px inset #F0F3BD;
+    outline: none;
+    text-align: center;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.CharRemaining {
+    font-size: 10px;
+    width: 70%;
+    text-align: end;
+}
+
+.NewItem button {
+    font-size: 12px;
+    font-weight: bold;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 2px solid #F0F3BD;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.NewItem button:hover {
+    background-color: #F0F3BD;
+    color: #05668D;
+}
+
+.SaveEditsButton {
+    font-size: 20px;
+    font-weight: bolder;
+    width: 30%;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 2px solid #F0F3BD;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.SaveEditsButton:hover {
+    background-color: #F0F3BD;
+    color: #05668D;
+}
+
+/* End of Edit List Modal */
+
+/* Start of Delete List Modal */
+.DeleteConfirmForm {
+    z-index: 2;
+    position: fixed;
+    height: 24vh;
+    width: 34vw;
+    left: 33vw;
+    top: 38vh;
+    border: 10px solid #F0F3BD;
+    border-radius: 20px;
+    background-color: #05668D;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.DeleteDoubleCheck {
+    color: #F0F3BD;
+    font-weight: bolder;
+    font-size: 24px;
+}
+
+.DeleteListButtons {
+    height: 33%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    margin: 0px 10px 0px 10px;
+}
+
+.DeleteConfirmForm button {
+    font-size: 20px;
+    font-weight: bolder;
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: 2px solid #F0F3BD;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+
+.DeleteConfirmForm button:hover {
+    background-color: #F0F3BD;
+    color: #05668D;
+}
+/* End of Delete List Modal */

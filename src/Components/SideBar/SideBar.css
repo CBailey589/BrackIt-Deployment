@@ -13,9 +13,9 @@
     padding-top: 10px;
     box-sizing: border-box;
     background-image: url('../../Images/BrackItSideBar.svg');
-    background-size: cover;
+    background-size: auto;
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: bottom;
     display: flex;
 }
 
