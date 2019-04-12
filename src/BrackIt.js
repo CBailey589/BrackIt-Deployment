@@ -12,27 +12,34 @@ export default class BrackIt extends Component {
     // Main is the initial landing page
     // profile is the "application views" that will switch between the users "home page" and any bracket they make
     let mainComponent
-    switch (this.props.location) {
-      case "":
-        mainComponent = <Main
-          {...this.props} />
-        break
-      case "callback":
-        mainComponent = <Callback />
-        break
-      case "profile":
-        mainComponent = this.props.auth.isAuthenticated()
-          ?
-          <ApplicationViews
+      switch (this.props.location) {
+        case "":
+          mainComponent = <Main
             {...this.props} />
-          :
-          <NotFound />
-        break
-      default:
-        mainComponent = <NotFound />
-    }
-
-
+          break
+        case "callback":
+          mainComponent = <Callback />
+          break
+        case "profile":
+          mainComponent = this.props.auth.isAuthenticated()
+            ?
+            <ApplicationViews
+              {...this.props} />
+            :
+            <NotFound />
+          break
+        case this.props.location.pathname.startsWith("bracket"):
+          mainComponent = this.props.auth.isAuthenticated()
+            ?
+            <ApplicationViews
+              {...this.props} />
+            :
+            <NotFound />
+          break
+        default:
+          mainComponent = <NotFound />
+          break
+      }
 
     return (
       <React.Fragment>

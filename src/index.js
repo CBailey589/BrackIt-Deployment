@@ -31,7 +31,7 @@ if (auth.getProfile().sub !== undefined) {
     userId = auth.getProfile().sub.split("|")[1]
 }
 
-// sets initial state with users "first name" in auth0, unique user id,
+// sets initial state with users "first name" in auth0, unique user id. Location is set in state to be used with the switch in Brackit.js
 let initialState = {
     name: username,
     userId: userId,

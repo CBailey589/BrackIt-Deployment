@@ -1,0 +1,240 @@
+.BracketView {
+    position: fixed;
+    right: 0;
+    bottom: 4vw;
+    overflow: scroll;
+    width: 88vw;
+    height: calc(100vh - 14vw);
+    box-sizing: border-box;
+    font-family: 'Nanum Gothic Coding', monospace;
+    font-weight: 900;
+    color: #F0F3BD;
+}
+
+.BracketSquareContainer {
+    background-color: #05668D;
+    display: flex;
+    width: 100%;
+    height: 70%;
+    flex-flow: row wrap;
+    justify-self: center;
+    cursor: grab;
+    position: relative;
+}
+
+.active {
+    cursor: grabbing;
+}
+
+.BracketSquare {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: space-evenly;
+    align-items: flex-end;
+}
+
+.HoldsItem {
+    cursor: pointer;
+    word-break: break-word;
+}
+
+/* START OF BRACKET LINE BUILDING: */
+
+.InsideLeft {
+    border-right: 3px solid #02C39A;
+}
+
+.InsideRight {
+    border-left: 3px solid #02C39A;
+}
+
+.InsideLeftTop {
+    border-top-right-radius: 9px;
+    border-top: 3px solid #02C39A;
+    border-right: 3px solid #02C39A;
+}
+
+.InsideLeftBottom {
+    border-bottom-right-radius: 9px;
+    border-bottom: 3px solid #02C39A;
+    border-right: 3px solid #02C39A;
+}
+
+.InsideRightTop {
+    border-top-left-radius: 9px;
+    border-top: 3px solid #02C39A;
+    border-left: 3px solid #02C39A;
+}
+
+.InsideRightBottom {
+    border-bottom-left-radius: 9px;
+    border-bottom: 3px solid #02C39A;
+    border-left: 3px solid #02C39A;
+}
+
+.Final2 {
+    border-bottom: 3px solid #02C39A;
+}
+
+/* END OF BRACKET LINE BUILDING: */
+
+.InsideLeft .ButtonDiv, .InsideLeftTop .ButtonDiv {
+    display: flex;
+    width: 97%;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.InsideRight .ButtonDiv, .InsideRightTop .ButtonDiv {
+    display: flex;
+    width: 97%;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.ChampButtons .ButtonDiv{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.BracketButton {
+    border: 1px solid #F0F3BD;
+    cursor: pointer;
+    border-radius: 45px;
+    font-family: 'Baloo Bhaijaan', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.BracketButton:hover {
+    border: 2px solid #F0F3BD;
+    background-color: #F0F3BD;
+    color: #05668D;
+}
+/* START OF SCROLL BARS: */
+
+.BracketView::-webkit-scrollbar {
+    width: 8px;
+    background-color: #05668D;
+}
+
+.BracketView::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #00A896;
+    background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent)
+}
+
+.BracketView::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    background-color: #05668D;
+}
+
+.BracketView::-webkit-scrollbar-corner {
+    background-color: #05668D;
+}
+
+/* END OF SCROLL BARS */
+
+/* START OF CHAMP MODAL AND CONFETTI: */
+
+#ChampModalContent {
+    /* border: 2px solid blueviolet; */
+    background-color: #028090;
+    border: 3px solid #02C39A;
+    border-radius: 9px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    height: 22vh;
+    width: 22vw;
+    position: fixed;
+    right: 33vw;
+    bottom: 30vh;
+    animation: stretch;
+    animation-duration: .3s;
+    animation-timing-function: ease-out;
+    animation-delay: 0s;
+}
+
+.ChampModalHeader {
+    width: 100%;
+    height: 25%;
+    padding-left: 10px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+}
+
+.ChampModalWinner {
+    width: 100%;
+    height: 75%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 31px;
+    font-weight: bolder;
+}
+
+#ConfettiModal {
+    z-index: 1;
+    position: fixed;
+    right: 0;
+    bottom: 4vw;
+    width: 88vw;
+    height: calc(100vh - 14vw);
+    background-color: rgba(0, 0, 0, .4)
+}
+
+.confetti {
+    position: absolute;
+}
+
+.defaultColor {
+    background-color: #00B6FF;
+}
+
+.altColor1 {
+    background-color: #00E1FF;
+}
+
+.altColor2 {
+    background-color: #00FFC7;
+}
+
+:root {
+    --RL-movement: 0px
+}
+
+@keyframes fallingConfetti {
+    0% {
+        -webkit-transform: translate(0px, 0px) rotateZ(0deg);
+    }
+    1% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translate(var(--RL-movement), 600px) rotateZ(360deg);
+    }
+}
+
+@keyframes stretch {
+    0% {
+        transform: scale(.1);
+        background-color: #02C39A;
+        border-radius: 100%;
+    }
+    50% {
+        background-color: #00A896;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #028090;
+    }
+}

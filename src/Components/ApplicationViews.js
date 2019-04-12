@@ -133,7 +133,9 @@ class ApplicationViews extends Component {
                 <Route exact path="/bracket/:listId(\d+)" render={(props) => {
                     return <Bracket
                         {...this.props}
-                        {...props} />
+                        {...props}
+                        usersLists={this.state.userLists}
+                        usersListItems={this.state.usersListItems} />
                 }} />
             </React.Fragment>
         )
