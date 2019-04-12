@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import ListItemManager from "../../Modules/ResourceManagers/ListItemManager"
+
 class EditListModal extends Component {
     state = {
         listName: "",
@@ -30,6 +32,16 @@ class EditListModal extends Component {
         newState.listItems = this.props.usersListItems.filter(item => item.listId === this.props.listObj.id)
         this.setState(newState)
     }
+
+    updateEditListItems(listId) {
+        // made so after ApplicationViews/UserList state is updated with the added list item, this runs and updates the state in EditListModal. This was a result of the object being added to the EditListModal state without an id from the database. Because of that the remove button would have --underfined, which would cause a 404 error if clicked. This was only the case with items that were added and then deleted before the user clicked the save edits button
+        const newState = this.state
+        let userId = parseInt(this.props.userId)
+        ListItemManager.CUSTOMSEARCH(`?userId=${userId}&&listId=${listId}`)
+        .then(json => newState.listItems = json)
+            .then(() => this.setState(newState))
+    }
+
 
     render() {
         let listObj = this.props.listObj
@@ -72,6 +84,7 @@ class EditListModal extends Component {
                                     <button
                                         id={`remove--${item.id}`}
                                         onClick={() => {
+                                            console.log(item)
                                             this.props.removeListItem(item)
                                             let listItems = this.state.listItems
                                             let updatedListItems = listItems.filter(listItem => listItem.id !== item.id)
@@ -103,9 +116,7 @@ class EditListModal extends Component {
                                     userId: listObj.userId
                                 }
                                 this.props.addNewListItem(itemObj)
-                                let listItems = this.state.listItems
-                                listItems.push(itemObj)
-                                this.setState({ listItems: listItems })
+                                .then(()=> this.updateEditListItems(listObj.id))
                                 this.setState({ itemText: "" })
                                 document.querySelector("#itemText").value = ""
                             }}>

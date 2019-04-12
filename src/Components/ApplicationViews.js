@@ -62,11 +62,11 @@ class ApplicationViews extends Component {
     addNewListItem = (itemObj) => {
         //works the same as postNewList, but with a lit item instead of an entire list
         return ListItemManager.POST(itemObj)
-            .then(postedObj => {
-                let newState = this.state
-                newState.usersListItems.push(postedObj)
-                this.setState(newState)
-            })
+        .then(postedObj => {
+            let newState = this.state
+            newState.usersListItems.push(postedObj)
+            this.setState(newState)
+        })
     }
 
     removeListItem = (item) => {
