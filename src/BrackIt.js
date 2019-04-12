@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import './BrackIt.css';
 
 import Main from "./Components/MainPage/Main"
-import Secret from "./Components/Secret"
 import NotFound from "./Components/Navigation/NotFound"
 import Callback from './Components/Navigation/Callback';
+import ApplicationViews from './Components/ApplicationViews';
 
 export default class BrackIt extends Component {
   render() {
     // establishes which component will be shown based off of location in state (based off of url)
     // Main is the initial landing page
-
+    // profile is the "application views" that will switch between the users "home page" and any bracket they make
     let mainComponent
     switch (this.props.location) {
       case "":
@@ -20,10 +20,10 @@ export default class BrackIt extends Component {
       case "callback":
         mainComponent = <Callback />
         break
-      case "secret":
+      case "profile":
         mainComponent = this.props.auth.isAuthenticated()
           ?
-          <Secret
+          <ApplicationViews
             {...this.props} />
           :
           <NotFound />

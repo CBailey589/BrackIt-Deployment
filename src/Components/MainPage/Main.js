@@ -14,7 +14,7 @@ export default class Main extends Component {
                 {/* Shows the Login button if the user is not authenticated */}
                 <div className="MainPage">
                     {this.props.auth.isAuthenticated() &&
-                        <a href="/secret">
+                        <a href="/profile">
                             <div className="MainPageButton">
                                 <div className="MainPageButtonText">
                                     Enter Brackit
