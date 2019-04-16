@@ -1,5 +1,5 @@
 const Settings = {
-    url: "http://localhost:7777",
+    url: "http://134.209.118.195/",
 }
 
 export default Settings
