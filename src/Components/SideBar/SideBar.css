@@ -18,7 +18,7 @@
     background-position-x: left;
     background-position-y: bottom;
     display: flex;
-    z-index: 2;
+    z-index: 1;
 }
 
 .SideBar .NavLink {

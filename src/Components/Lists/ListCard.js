@@ -41,7 +41,7 @@ class ListCard extends Component {
                         <button className="listButton"
                             id={`edit--${list.id}`}
                             onClick={() => this.props.displayEditListModal(list)}>
-                            Add/Edit Items
+                            Add / Edit Items
                         </button>
                         {listItems.length >= 3
                             ? <Link className="nav-link" to={`/bracket/${list.id}`}>
