@@ -39,6 +39,7 @@ class Bracket extends Component {
         squareScale: 1,
         vw: 0,
         vh: 0,
+        vmin: 0,
         champModalContent: [],
         confettiModal: []
     }
@@ -169,6 +170,11 @@ class Bracket extends Component {
 
                     newState.vw = document.querySelector(".BracketView").clientWidth
                     newState.vh = document.querySelector(".BracketView").clientHeight
+                    if (document.querySelector(".BracketView").clientHeight > document.querySelector(".BracketView").clientWidth) {
+                        newState.vmin = document.querySelector(".BracketView").clientWidth;
+                    } else {
+                        newState.vmin = document.querySelector(".BracketView").clientHeight;
+                    }
 
 
                     this.setState(newState)
@@ -255,6 +261,7 @@ class Bracket extends Component {
                                         pickChamp={this.pickChamp}
                                         vh={this.state.vh}
                                         vw={this.state.vw}
+                                        vmin={this.state.vmin}
                                         squareScale={this.state.squareScale} />
                                 ))
                         }
