@@ -12,6 +12,7 @@ class BracketSqaure extends Component {
         const squareScale = this.props.squareScale
         const vw = this.props.vw
         const vh = this.props.vh
+        const vmin = this.props.vmin
         const col = this.props.col
         const row = this.props.row
         let squareInfo = MakeBracketSquareInfo(col, row, bracketObj)
@@ -26,7 +27,9 @@ class BracketSqaure extends Component {
                         height: `${vh / numRows * squareScale}px`,
                         width: `${vw / numCols * squareScale}px`,
                         // ********NEEDS TWEAKING ON SIZE?*************
-                        fontSize: `${(4 + (((7 - rounds) * 2) + (round * 1.5))) * squareScale}px`
+                        // THIS WAS THE OLD ONE, IS THE NEW ONE BETTER?
+                        // fontSize: `${(4 + (((7 - rounds) * 2) + (round * 1.5))) * squareScale}px`
+                        fontSize: `${((vmin / 100) + (round * 1.5)) * squareScale}px`
                     }}
                     onClick={(evt) => {
                         try { this.props.advanceItemToNextRound(evt) }
@@ -49,9 +52,12 @@ class BracketSqaure extends Component {
                                     }}
                                     style={{
                                         // ********NEEDS TWEAKING ON SIZE?*************
-                                        height: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
-                                        width: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
-                                        fontSize: `${squareScale * 2 * ((2 * round)) * (7 - rounds)}px`,
+                                        // height: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
+                                        // width: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
+                                        height: `${squareScale * 1.5 * ((2 * round)) * (7 - rounds) + (vmin / 350)}px`,
+                                        width: `${squareScale * 1.5 * ((2 * round)) * (7 - rounds) + (vmin / 350)}px`,
+                                        // fontSize: `${squareScale * 2 * ((2 * round)) * (7 - rounds)}px`,
+                                        fontSize: `${(1 * (vmin / 100) + (round * 1.5)) * squareScale}px`
                                     }}
                                 >
                                     ?
@@ -63,16 +69,19 @@ class BracketSqaure extends Component {
                         (classList.includes("ChampButtons"))
                             ? <div className="ButtonDiv">
                                 <div key={`${row}-${col}`}
-                                className="BracketButton"
+                                    className="BracketButton"
                                     id={`${round}-${row}-${col}--Champ`}
                                     onClick={(evt) => {
                                         this.props.pickChamp(evt)
                                     }}
                                     style={{
                                         // ********NEEDS TWEAKING ON SIZE?*************
-                                        height: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
-                                        width: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
-                                        fontSize: `${squareScale * 2 * ((2 * round)) * (7 - rounds)}px`
+                                        // height: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
+                                        // width: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
+                                        height: `${squareScale * 1.5 * ((2 * round)) * (7 - rounds) + (vmin / 100)}px`,
+                                        width: `${squareScale * 1.5 * ((2 * round)) * (7 - rounds) + (vmin / 100)}px`,
+                                        // fontSize: `${squareScale * 2 * ((2 * round)) * (7 - rounds)}px`
+                                        fontSize: `${(1 * (vmin / 100) + (round * 1.5)) * squareScale}px`
                                     }}
                                 >
                                     ?

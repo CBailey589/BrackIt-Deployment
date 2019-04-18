@@ -1,10 +1,10 @@
 .BracketView {
     position: fixed;
     right: 0;
-    bottom: 4vw;
+    bottom: 4vmin;
     overflow: scroll;
     width: 88vw;
-    height: calc(100vh - 14vw);
+    height: calc(100vh - 14vmin);
     box-sizing: border-box;
     font-family: 'Nanum Gothic Coding', monospace;
     font-weight: 900;
@@ -92,7 +92,7 @@
     justify-content: flex-start;
 }
 
-.ChampButtons .ButtonDiv{
+.ChampButtons .ButtonDiv {
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -113,6 +113,7 @@
     background-color: #F0F3BD;
     color: #05668D;
 }
+
 /* START OF SCROLL BARS: */
 
 .BracketView::-webkit-scrollbar {
@@ -149,11 +150,11 @@
     flex-direction: column;
     justify-content: center;
     z-index: 2;
-    height: 22vh;
-    width: 22vw;
+    height: 40vh;
+    width: 40vw;
     position: fixed;
-    right: 33vw;
-    bottom: 30vh;
+    right: 24vw;
+    bottom: calc(33vh - 7vmin);
     animation: stretch;
     animation-duration: .3s;
     animation-timing-function: ease-out;
@@ -167,7 +168,7 @@
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    font-size: 20px;
+    font-size: calc(10px + 3vmin);
 }
 
 .ChampModalWinner {
@@ -177,7 +178,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 31px;
+    font-size: calc(10px + 5vmin);
     font-weight: bolder;
 }
 
@@ -185,9 +186,9 @@
     z-index: 1;
     position: fixed;
     right: 0;
-    bottom: 4vw;
+    bottom: 4vmin;
     width: 88vw;
-    height: calc(100vh - 14vw);
+    height: calc(100vh - 14vmin);
     background-color: rgba(0, 0, 0, .4)
 }
 

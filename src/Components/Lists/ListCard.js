@@ -38,16 +38,16 @@ class ListCard extends Component {
                         }
                     </div>
                     <div className="CardButtons">
-                        <button className=""
+                        <button className="listButton"
                             id={`edit--${list.id}`}
                             onClick={() => this.props.displayEditListModal(list)}>
-                            Edit List
+                            Add / Edit Items
                         </button>
                         {listItems.length >= 3
                             ? <Link className="nav-link" to={`/bracket/${list.id}`}>
-                                <button className="BrackItButton">
+                                <button className="listButton2">
                                     BrackIt
-                            </button>
+                                </button>
                             </Link>
                             : <div className="BrackitWarning">
                                 <b>*Must have at least <br />3 items to BrackIt!</b>
