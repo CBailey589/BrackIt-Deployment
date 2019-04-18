@@ -1,7 +1,7 @@
 .SideBar {
     background-color: #044B67;
     width: 12vw;
-    height: calc(100vh - 10vmin);
+    height: calc(100vh - 14vmin);
     box-sizing: border-box;
     position: fixed;
     top: 10vmin;
@@ -10,7 +10,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding-top: 3vh;
+    padding-top: 3vmin;
     box-sizing: border-box;
     background-image: url('../../Images/BrackItSideBar.svg');
     background-size: auto;

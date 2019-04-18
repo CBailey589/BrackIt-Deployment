@@ -4,11 +4,12 @@
     flex-flow: column;
     position: fixed;
     right: 0;
-    bottom: 4vw;
+    bottom: 4vmin;
+    padding-top: 3vmin;
     overflow-y: scroll;
     overflow-x: hidden;
     width: 88vw;
-    height: calc(100vh - 14vw);
+    height: calc(100vh - 14vmin);
     box-sizing: border-box;
     font-family: 'Kanit', sans-serif;
 }
@@ -21,14 +22,14 @@
 }
 
 .ListSection::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 2vmin;
     background-color: #00A896;
     background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .4) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .4) 50%, rgba(255, 255, 255, .4) 75%, transparent 75%, transparent)
 }
 
 .ListSection::-webkit-scrollbar-track {
     box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-    border-radius: 10px;
+    border-radius: 2.2vmin;
     background-color: #05668D;
 }
 
@@ -43,20 +44,20 @@
 .ListSectionHeader {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-end;
     width: 100%;
-    height: 15%;
+    height: 10vmin;
 }
 
 .ListSectionHeader button {
-    border-radius: 20px;
+    border-radius: 2vmin;
     background-color: #05668D;
     color: #F0F3BD;
-    border: 3px solid #F0F3BD;
-    height: 70%;
-    width: 250px;
+    border: .5vmin solid #F0F3BD;
+    height: 90%;
+    width: 55vmin;
     font-weight: bolder;
-    font-size: 24px;
+    font-size: calc(3px + 4vmin);
     cursor: pointer;
     box-shadow: 3px 3px 5px 6px rgba(0, 0, 0, .4)
 }
@@ -77,22 +78,23 @@
 .ListCardHolder {
     display: flex;
     width: 100%;
-    height: 50px;
+    height: 0px;
     flex-flow: row wrap;
     justify-content: space-evenly;
     align-items: flex-start;
 }
 
 .ListCardOuterBorder {
+    background-color: yellow;
     margin: 25px;
     box-sizing: border-box;
     border: 10px solid #F0F3BD;
     background-color: #F0F3BD;
     border-radius: 15px;
-    width: 40%;
-    min-width: 450px;
-    height: 35%;
-    min-height: 350px;
+    width: 60vmin;
+    min-width: 300px;
+    height: 60vmin;
+    min-height: 300px;
     position: relative;
 }
 
@@ -152,10 +154,9 @@
     justify-content: flex-start;
     align-items: center;
     min-width: 98%;
-    font-size: 30px;
+    font-size: calc(10px + 3vmin);
     font-weight: bolder;
     color: #F0F3BD;
-    /* margin-bottom: 10px; */
 }
 
 .ListCatAndNum {
@@ -164,31 +165,29 @@
     width: 75%;
     justify-content: space-between;
     align-items: flex-end;
-    /* margin-bottom: 10px; */
 }
 
 .ListCategory {
-    font-size: 20px;
+    font-size: calc(8px + 2vmin);
     color: #F0F3BD;
 }
 
 .ListNumber {
-    font-size: 14px;
+    font-size: calc(4px + 1.3vmin);
     color: #F0F3BD;
 }
 
 /* EVERYTHING INSIDE OF LIST ITEMS INCLUDING STYLED CHECKBOXES AND SCROLL BARS*/
 
 .ListItems {
-    border: 3px solid #02C39A;
+    border: .5vmin solid #02C39A;
     background-color: #044B67;
-    border-radius: 3px;
+    border-radius: .5vmin;
     display: flex;
     flex-direction: column;
     height: 50%;
-    width: 75%;
+    width: 90%;
     overflow-y: scroll;
-    /* margin-bottom: 10px; */
     box-sizing: border-box;
 }
 
@@ -210,19 +209,17 @@
     /* border: 1px dotted gold; */
     color: #F0F3BD;
     font-weight: bold;
-    font-size: 17px;
+    font-size: calc(4px + 1.8vmin);
     display: flex;
-    min-height: 40px;
-    max-height: 40px;
+    min-height: calc(20px + 4vmin);
+    max-height: calc(20px + 4vmin);
     justify-content: space-between;
     align-items: flex-end;
     margin: -7px 7px -7px 0px;
     padding: 5px;
-    /* box-sizing: border-box; */
 }
 
 .CheckboxContainer {
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -287,22 +284,40 @@
 
 .CardButtons {
     display: flex;
-    width: 75%;
-    height: 15%;
+    width: 85%;
+    height: 5vmin;
+    justify-content: flex-end;
+    align-items: center;
+}
+.nav-link {
+    display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.CardButtons button {
-    font-size: 20px;
+.listButton {
+    font-size: calc(4px + 1.8vmin);
     font-weight: bolder;
-    width: 100px;
-    height: 30px;
+    width: 50%;
+    height: 5vmin;
     margin-left: 10px;
     border-radius: 10px;
     background-color: #05668D;
     color: #F0F3BD;
-    border: 2px solid #F0F3BD;
+    border: .5vmin solid #F0F3BD;
+    box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
+    cursor: pointer;
+}
+.listButton2{
+    font-size: calc(4px + 1.8vmin);
+    font-weight: bolder;
+    width: 100%;
+    height: 5vmin;
+    margin-left: 10px;
+    border-radius: 10px;
+    background-color: #05668D;
+    color: #F0F3BD;
+    border: .5vmin solid #F0F3BD;
     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
     cursor: pointer;
 }
@@ -333,11 +348,11 @@
 }
 
 .ListDeleteButton {
-    width: 15%;
+    width: 20%;
     border-radius: 7px;
     background-color: #05668D;
     border: 1px solid #F0F3BD;
-    font-size: 14px;
+    font-size: calc(2px + 1.8vmin);
     color: #F0F3BD;
     font-weight: bolder;
     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
