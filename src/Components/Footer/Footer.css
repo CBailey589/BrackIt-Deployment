@@ -2,7 +2,7 @@
     background-color: #044B67;
     color: #F0F3BD;
     width: 100vw;
-    height: 4vw;
+    height: 4vmin;
     box-sizing: border-box;
     position: fixed;
     bottom: 0;
@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: .6em;
+    font-size: calc(2px + 2vmin);
     font-family: 'Kanit', sans-serif;
     box-sizing: border-box;
     background-image: url('../../Images/BrackItFooter.svg');
