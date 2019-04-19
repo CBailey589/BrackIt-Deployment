@@ -16,7 +16,7 @@ class EditListModal extends Component {
             newState[evt.target.id] = evt.target.value
             this.setState(newState)
         } else if (evt.target.id === "itemText" && evt.target.value.length > 22) {
-            alert("Item entries must be 20 characters or less")
+            alert("Item entries must be 22 characters or less")
             document.querySelector("#itemText").value = this.state.itemText
         } else if (evt.target.id !== "itemText") {
             const newState = this.state
@@ -38,7 +38,7 @@ class EditListModal extends Component {
         const newState = this.state
         let userId = parseInt(this.props.userId)
         ListItemManager.CUSTOMSEARCH(`?userId=${userId}&&listId=${listId}`)
-        .then(json => newState.listItems = json)
+            .then(json => newState.listItems = json)
             .then(() => this.setState(newState))
     }
 
@@ -108,17 +108,19 @@ class EditListModal extends Component {
                         />
                         <button
                             onClick={() => {
-                                let itemObj = {
-                                    itemText: this.state.itemText,
-                                    listId: listObj.id,
-                                    itemActive: true,
-                                    itemWeight: 0.5,
-                                    userId: listObj.userId
+                                if (document.querySelector("#itemText").value !== "") {
+                                    let itemObj = {
+                                        itemText: this.state.itemText,
+                                        listId: listObj.id,
+                                        itemActive: true,
+                                        itemWeight: 0.5,
+                                        userId: listObj.userId
+                                    }
+                                    this.props.addNewListItem(itemObj)
+                                        .then(() => this.updateEditListItems(listObj.id))
+                                    this.setState({ itemText: "" })
+                                    document.querySelector("#itemText").value = ""
                                 }
-                                this.props.addNewListItem(itemObj)
-                                .then(()=> this.updateEditListItems(listObj.id))
-                                this.setState({ itemText: "" })
-                                document.querySelector("#itemText").value = ""
                             }}>
                             Add
                         </button>
@@ -129,17 +131,19 @@ class EditListModal extends Component {
                     <button className="SaveEditsButton"
                         id={`update--${listObj.id}`}
                         onClick={() => {
-                            const updatedListObj = {
-                                id: listObj.id,
-                                userId: parseInt(this.props.userId),
-                                listName: this.state.listName,
-                                listCategory: this.state.listCategory,
-                                listCreatedDateTime: listObj.listCreatedDateTime,
-                                listLastUsed: Date.now(),
-                                public: listObj.public,
+                            if (this.state.listName !== "" && this.state.listCategory !== "") {
+                                const updatedListObj = {
+                                    id: listObj.id,
+                                    userId: parseInt(this.props.userId),
+                                    listName: this.state.listName,
+                                    listCategory: this.state.listCategory,
+                                    listCreatedDateTime: listObj.listCreatedDateTime,
+                                    listLastUsed: Date.now(),
+                                    public: listObj.public,
+                                }
+                                this.props.updateList(updatedListObj)
+                                this.props.clearModal()
                             }
-                            this.props.updateList(updatedListObj)
-                            this.props.clearModal()
                         }}>
                         Save Edits
                     </button>

@@ -43,7 +43,7 @@ class ListCard extends Component {
                             onClick={() => this.props.displayEditListModal(list)}>
                             Add / Edit Items
                         </button>
-                        {listItems.length >= 3
+                        {listItems.filter(item => item.itemActive === true).length >= 3
                             ? <Link className="nav-link" to={`/bracket/${list.id}`}>
                                 <button className="listButton2">
                                     BrackIt

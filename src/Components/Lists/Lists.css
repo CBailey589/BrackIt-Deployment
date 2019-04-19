@@ -297,7 +297,7 @@
 }
 
 .listButton {
-    font-size: calc(4px + 1.8vmin);
+    font-size: calc(4px + 1vmin);
     font-weight: bolder;
     width: 50%;
     height: 5vmin;
@@ -305,7 +305,7 @@
     border-radius: 10px;
     background-color: #05668D;
     color: #F0F3BD;
-    border: .5vmin solid #F0F3BD;
+    border: .25vmin solid #F0F3BD;
     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
     cursor: pointer;
 }
@@ -319,7 +319,7 @@
     border-radius: 10px;
     background-color: #05668D;
     color: #F0F3BD;
-    border: .5vmin solid #F0F3BD;
+    border: .25vmin solid #F0F3BD;
     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);
     cursor: pointer;
 }
@@ -331,7 +331,7 @@
 
 .BrackitWarning {
     margin-left: 10px;
-    font-size: calc(2px + 1vmin);
+    font-size: calc(3px + 1.2vmin);
     color: #F0F3BD;
 }
 
@@ -353,8 +353,8 @@
     width: 20%;
     border-radius: 7px;
     background-color: #05668D;
-    border: 1px solid #F0F3BD;
-    font-size: calc(2px + 1.8vmin);
+    border: .25vmin solid #F0F3BD;
+    font-size: calc(4px + 1vmin);
     color: #F0F3BD;
     font-weight: bolder;
     box-shadow: 3px 3px 5px 3px rgba(0, 0, 0, .4);

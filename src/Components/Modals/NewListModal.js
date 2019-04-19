@@ -29,8 +29,10 @@ class NewListModal extends Component {
                     <div className="NewListButtons">
                         <button
                             onClick={() => {
-                                this.props.clearModal()
-                                this.props.postNewList()
+                                if (document.querySelector("#listName").value !== "" && document.querySelector("#listCategory").value !== "") {
+                                    this.props.clearModal()
+                                    this.props.postNewList()
+                                }
                             }}>
                             Create
                         </button>
