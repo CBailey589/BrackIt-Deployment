@@ -92,6 +92,13 @@
     justify-content: flex-start;
 }
 
+.ChampButtons{
+    display:flex;
+    flex-direction:column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 .ChampButtons .ButtonDiv {
     display: flex;
     justify-content: center;

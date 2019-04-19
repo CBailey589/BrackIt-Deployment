@@ -13,6 +13,9 @@ export default class Main extends Component {
                 {/* Shows the enter brackit button if the user is authenticated and arrives at the landing page */}
                 {/* Shows the Login button if the user is not authenticated */}
                 <div className="MainPage">
+                    <div className="MobileWarning">
+                        **For best results on portable devices, use in landscape orientation
+                </div>
                     {this.props.auth.isAuthenticated() &&
                         <a href="/profile">
                             <div className="MainPageButton">
