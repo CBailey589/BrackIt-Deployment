@@ -29,7 +29,7 @@ class BracketSqaure extends Component {
                         // ********NEEDS TWEAKING ON SIZE?*************
                         // THIS WAS THE OLD ONE, IS THE NEW ONE BETTER?
                         // fontSize: `${(4 + (((7 - rounds) * 2) + (round * 1.5))) * squareScale}px`
-                        fontSize: `${((vmin / 100) + (round * 1.5)) * squareScale}px`
+                        fontSize: `${((vmin / 100) + (round * 1.5)) * squareScale * ((7 - rounds)*(1/2))}px`
                     }}
                     onClick={(evt) => {
                         try { this.props.advanceItemToNextRound(evt) }
@@ -54,10 +54,10 @@ class BracketSqaure extends Component {
                                         // ********NEEDS TWEAKING ON SIZE?*************
                                         // height: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
                                         // width: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
-                                        height: `${squareScale * 1.5 * ((2 * round)) * (7 - rounds) + (vmin / 350)}px`,
-                                        width: `${squareScale * 1.5 * ((2 * round)) * (7 - rounds) + (vmin / 350)}px`,
+                                        height: `${squareScale * 1.5 * ((2 * round)) * ((7 - rounds)*(2/5)) + (vmin / 350)}px`,
+                                        width: `${squareScale * 1.5 * ((2 * round)) * ((7 - rounds)*(2/5)) + (vmin / 350)}px`,
                                         // fontSize: `${squareScale * 2 * ((2 * round)) * (7 - rounds)}px`,
-                                        fontSize: `${(1 * (vmin / 100) + (round * 1.5)) * squareScale}px`
+                                        fontSize: `${(1 * (vmin / 100) + (round * 1.5)) * squareScale * ((7 - rounds)*(1/4))}px`
                                     }}
                                 >
                                     ?
@@ -78,10 +78,10 @@ class BracketSqaure extends Component {
                                         // ********NEEDS TWEAKING ON SIZE?*************
                                         // height: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
                                         // width: `${squareScale * 2.5 * ((2 * round)) * (7 - rounds)}px`,
-                                        height: `${squareScale * 1.5 * ((2 * round)) * (7 - rounds) + (vmin / 100)}px`,
-                                        width: `${squareScale * 1.5 * ((2 * round)) * (7 - rounds) + (vmin / 100)}px`,
+                                        height: `${squareScale * 1.5 * ((2 * round)) * ((7 - rounds)*(2/3)) + (vmin / 100)}px`,
+                                        width: `${squareScale * 1.5 * ((2 * round)) * ((7 - rounds)*(2/3)) + (vmin / 100)}px`,
                                         // fontSize: `${squareScale * 2 * ((2 * round)) * (7 - rounds)}px`
-                                        fontSize: `${(1 * (vmin / 100) + (round * 1.5)) * squareScale}px`
+                                        fontSize: `${((vmin / 100) + (round * 1.5)) * squareScale * ((7 - rounds)*(2/3))}px`
                                     }}
                                 >
                                     ?

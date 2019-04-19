@@ -11,7 +11,8 @@ export default class Auth {
         redirectUri: "http://134.209.118.195/callback",
         audience: "https://dev-bvzn7841.auth0.com/userinfo",
         responseType: "token id_token",
-        scope: "openid profile"
+        scope: "openid profile",
+        returnTo: "https://dev-bvzn7841.auth0.com/v2/logout"
     })
 
     constructor() {
